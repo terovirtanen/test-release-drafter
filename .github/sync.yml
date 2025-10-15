@@ -1,0 +1,6 @@
+group:
+  repos: |
+    terovirtanen/test-release-please-action
+  files: 
+    - source: testi.txt
+      dest: testi.txt
