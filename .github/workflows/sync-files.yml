@@ -20,3 +20,5 @@ jobs:
         uses: BetaHuhn/repo-file-sync-action@v1
         with:
           GH_INSTALLATION_TOKEN: ${{ steps.app-token.outputs.token}}
+          GIT_EMAIL: bot.user@example.com
+          GIT_USERNAME: github-actions[bot]
