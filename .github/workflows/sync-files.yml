@@ -11,7 +11,12 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
+      - uses: actions/create-github-app-token@v2
+        id: app-token
+        with:
+          app-id: ${{ vars.APP_ID }}
+          private-key: ${{ secrets.SYNC_TEST_TOKEN }}
       - name: Run GitHub File Sync
         uses: BetaHuhn/repo-file-sync-action@v1
         with:
-          GH_INSTALLATION_TOKEN: ${{ secrets.SYNC_TEST_TOKEN }}
+          GH_INSTALLATION_TOKEN: ${{ steps.app-token.outputs.token}}
